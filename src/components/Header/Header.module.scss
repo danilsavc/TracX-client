@@ -1,0 +1,27 @@
+.header {
+  min-height: 500px;
+  background-image: url('https://i.onthe.io/smngoz24pi5ca1ph1g.0f32d590.jpg');
+  background-position: center;
+  background-size: 100%;
+
+  .span {
+    display: flex;
+    margin-top: 50px;
+    margin-left: 100px;
+    span { 
+      width: 700px;
+      font-weight: 500;
+      font-size: 80px;
+      line-height: 80px;
+      letter-spacing: 0.8px;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.headerSecond {
+  height: 80px;
+  background-image: url('https://i.onthe.io/smngoz24pi5ca1ph1g.0f32d590.jpg');
+  background-position: top;
+  background-size: 100%;
+}

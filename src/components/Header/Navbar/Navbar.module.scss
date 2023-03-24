@@ -1,0 +1,70 @@
+.navbar {
+  display: grid;
+  grid-template-columns: 30px repeat(3, 1fr) 30px;
+  grid-template-areas: ". logo ul button .";
+  align-items: center;
+
+  min-height: 80px;
+  width: 1400px;
+
+  background: rgba(16, 17, 23, 0.1);
+  backdrop-filter: blur(4px);
+
+  img {
+    grid-area: logo;
+    justify-self: start;
+    height: 50px;
+    max-width: 100px;
+  }
+
+  .nav {
+    grid-area: ul;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  li {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    color: #FFFFFF;
+
+    transition: ease 0.3s;
+    cursor: pointer;
+  }
+
+  li:hover {
+    opacity: 0.5;
+  }
+
+  button {
+    grid-area: button;
+    justify-self: end;
+
+    width: 93px;
+    height: 48px;
+    background: #EFF3F6;
+    border-radius: 1000px;
+    border: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: #001A34;
+
+    transition: ease 0.3s;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #d4d7da;
+  }
+}

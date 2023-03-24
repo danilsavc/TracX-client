@@ -1,12 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Contacts from "../pages/Contacts";
-import Home from "../pages/Home";
-import Items from "../pages/Items";
-import Junior from "../pages/Junior";
-import Login from "../pages/Login";
-import Registration from "../pages/Registration";
-import Reviews from "../pages/Reviews";
+
+import Contacts from "./Contacts";
+import Home from "./Home";
+import Items from "./Items";
+import Junior from "./Junior";
+import Login from "./Login";
+import Registration from "./Registration";
+import Reviews from "./Reviews";
+import OneItems from "./OneItems";
 import {
   CONTACTS_ROUTE,
   ITEMS_ROUTE,
@@ -15,7 +17,6 @@ import {
   REGISTRATION_ROUTE,
   REVIEWS_ROUTE,
 } from "../utils/consts";
-import OneItems from "./OneItems";
 
 const AppRouter = () => {
   return (
