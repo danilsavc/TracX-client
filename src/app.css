@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&display=swap');
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 .App {
-  width: 1400px;
+  max-width: 1400px;
+  min-height: 100vh;
   margin: 0 auto;
   font-family: 'Alegreya Sans', sans-serif;
 }

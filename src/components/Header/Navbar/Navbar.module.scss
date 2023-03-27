@@ -19,26 +19,29 @@
 
   .nav {
     grid-area: ul;
-  }
-
-  ul {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
 
-  li {
+  .link {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.4px;
-    color: #FFFFFF;
+    color: #ffffff;
 
     transition: ease 0.3s;
     cursor: pointer;
   }
 
-  li:hover {
+  .linkActive {
+    span {
+      border-bottom: 2px solid white;
+    }
+  }
+
+  .link:hover {
     opacity: 0.5;
   }
 
@@ -48,7 +51,7 @@
 
     width: 93px;
     height: 48px;
-    background: #EFF3F6;
+    background: #eff3f6;
     border-radius: 1000px;
     border: none;
 
@@ -58,7 +61,7 @@
     line-height: 20px;
     text-align: center;
     letter-spacing: 0.4px;
-    color: #001A34;
+    color: #001a34;
 
     transition: ease 0.3s;
     cursor: pointer;

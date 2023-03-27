@@ -1,0 +1,18 @@
+.footer {
+  background-color: #101117;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 150px;
+
+  .container {
+    max-width: 1400px;
+    height: 100%;
+    padding-left: 148px;
+    padding-right: 148px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin: 0 auto;
+  }
+}

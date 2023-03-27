@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import style from "./Header.module.scss";
 
 const Header = () => {
-  const pathHome = false;
+  const pathHome = true;
 
   if (pathHome) {
     return (
