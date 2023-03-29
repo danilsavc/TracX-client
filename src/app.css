@@ -4,9 +4,14 @@
   width: 0;
 }
 
-.App {
-  max-width: 1400px;
-  min-height: 100vh;
-  margin: 0 auto;
+body {
+  width: 100%;
+  min-width: 1100px;
   font-family: 'Alegreya Sans', sans-serif;
+  font-style: normal;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
 }

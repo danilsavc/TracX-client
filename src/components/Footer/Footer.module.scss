@@ -1,18 +1,68 @@
 .footer {
   background-color: #101117;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  min-height: 150px;
-
   .container {
     max-width: 1400px;
-    height: 100%;
-    padding-left: 148px;
-    padding-right: 148px;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding: 60px 148px 60px 148px;
     margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hard {
+    a {
+      cursor: default;
+    }
+    span {
+      cursor: pointer;
+    }
+
+    display: grid;
+    grid-template-rows: 1fr repeat(3, 0, 5fr);
+  }
+
+  .soft {
+    a {
+      cursor: default;
+    }
+    span {
+      cursor: pointer;
+    }
+    display: grid;
+    grid-template-rows: 1fr repeat(3, 0, 5fr);
+  }
+
+  .social {
+    display: grid;
+    grid-template-rows: 1fr repeat(3, 0, 5fr);
+    row-gap: 10px;
+    a {
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+    }
+    a:hover {
+      opacity: 0.5;
+    }
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.6px;
+    color: #ffffff;
+  }
+
+  .link span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    color: #ffffff;
+  }
+
+  .linkActive span {
+    border-bottom: 1px solid white;
   }
 }
