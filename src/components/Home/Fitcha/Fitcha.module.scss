@@ -1,0 +1,7 @@
+@import "./../Title.module.scss";
+
+.fitcha {
+  h1 {
+    @include title-style;
+  }
+}

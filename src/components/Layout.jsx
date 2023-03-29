@@ -5,15 +5,15 @@ import Header from "./Header";
 
 const Layout = () => {
   return (
-    <div>
+    <>
       <div className='wrapper'>
         <Header />
-      </div>
-      <div className='wrapper'>
-        <Outlet />
+        <div className='outlet'>
+          <Outlet />
+        </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
