@@ -1,9 +1,10 @@
 import React from "react";
+import Modal from "../Modal";
 
 const Registration = () => {
   return (
     <div>
-      <span>Reg</span>
+      <span>sss</span>
     </div>
   );
 };

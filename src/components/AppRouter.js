@@ -4,18 +4,10 @@ import { Routes, Route } from "react-router-dom";
 import Contacts from "./Contacts";
 import Home from "./Home";
 import Events from "./Events";
-import Login from "./Login";
-import Registration from "./Registration";
 import AboutUs from "./AboutUs";
 import OneEvent from "./OneEvent";
 import Layout from "./Layout";
-import {
-  CONTACTS_ROUTE,
-  EVENTS_ROUTE,
-  LOGIN_ROUTE,
-  REGISTRATION_ROUTE,
-  ABOUTUS_ROUTE,
-} from "../utils/consts";
+import { CONTACTS_ROUTE, EVENTS_ROUTE, ABOUTUS_ROUTE } from "../utils/consts";
 
 const AppRouter = () => {
   return (
@@ -26,8 +18,6 @@ const AppRouter = () => {
         <Route path={CONTACTS_ROUTE} element={<Contacts />}></Route>
         <Route path={EVENTS_ROUTE} element={<Events />}></Route>
         <Route path={EVENTS_ROUTE + "/:id"} element={<OneEvent />}></Route>
-        <Route path={REGISTRATION_ROUTE} element={<Registration />}></Route>
-        <Route path={LOGIN_ROUTE} element={<Login />}></Route>
       </Route>
     </Routes>
   );

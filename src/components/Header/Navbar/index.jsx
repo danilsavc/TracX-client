@@ -4,10 +4,15 @@ import style from "./Navbar.module.scss";
 
 import logo from "../../../Assets/img/logo.svg";
 
+import Modal from "../../Modal";
+import Registration from "../../Registration";
+
 const isActive = ({ isActive }) =>
   isActive ? `${style.link} ${style.linkActive}` : `${style.link}`;
 
 const Navbar = () => {
+  const [modalActive, setModalActive] = React.useState(true);
+
   return (
     <div className={style.navbar}>
       <img src={logo} alt='logo' />
@@ -25,7 +30,11 @@ const Navbar = () => {
           <span>Контакти</span>
         </NavLink>
       </nav>
-      <button>Увійти</button>
+      <button onClick={() => setModalActive(true)}>Увійти</button>
+
+      <Modal active={modalActive} setActive={setModalActive}>
+        <Registration />
+      </Modal>
     </div>
   );
 };
