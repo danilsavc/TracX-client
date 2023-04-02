@@ -12,7 +12,7 @@ const Modal = ({ active, setActive, children }) => {
     <>
       {ReactDOM.createPortal(
         <div className={isActive} onClick={() => setActive(false)}>
-          <div className={style.modalContent} onAuxClick={(e) => e.stopPropagation()}>
+          <div className={style.modalContent} onClick={(e) => e.stopPropagation()}>
             {children}
           </div>
         </div>,

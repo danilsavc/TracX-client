@@ -1,0 +1,21 @@
+@mixin title-style {
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: 0.8px;
+  color: #001a34;
+}
+
+@mixin input-style {
+  width: 370px;
+  height: 56px;
+  border-radius: 6px;
+  border: 1px solid #dee5ea;
+  padding: 20px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.7px;
+  color: #667585;
+}
