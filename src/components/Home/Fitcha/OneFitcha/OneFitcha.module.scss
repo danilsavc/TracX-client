@@ -1,0 +1,38 @@
+.content {
+  display: grid;
+  grid-template-rows: 160px 1fr;
+
+  .box {
+    position: relative;
+    width: 276px;
+    height: 151px;
+
+    background: #ededed;
+    border-radius: 24px 24px 24px 0px;
+
+    .ring {
+      position: absolute;
+      top: -57px;
+      left: 45px;
+
+      width: 185px;
+      height: 185px;
+      border-radius: 50%;
+      background: #c4c4c4;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+
+        letter-spacing: 0.6px;
+        color: #001a34;
+      }
+    }
+  }
+}

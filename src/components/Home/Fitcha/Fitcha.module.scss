@@ -1,7 +1,17 @@
 @import "./../../../style/Normal_Classes.module.scss";
 
 .fitcha {
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  row-gap: 50px;
   h1 {
     @include title-style;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 24px;
   }
 }
