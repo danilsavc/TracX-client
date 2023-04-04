@@ -1,9 +1,11 @@
 import React from "react";
 
+import style from "./Events.module.scss";
+
 const Events = () => {
   return (
-    <div>
-      <span>Items</span>
+    <div className={style.events}>
+      <span>sss</span>
     </div>
   );
 };
