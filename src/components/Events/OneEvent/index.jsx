@@ -4,9 +4,9 @@ import styles from "./OneEvent.module.scss";
 
 import startup from "../../../Assets/img/startup.svg";
 
-const OneEvent = () => {
+const OneEvent = ({ backgroundColor }) => {
   const style = {
-    backgroundColor: "#FF5733",
+    backgroundColor: backgroundColor,
   };
 
   return (

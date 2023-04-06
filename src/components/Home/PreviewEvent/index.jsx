@@ -13,7 +13,7 @@ const PreviewEvents = () => {
 
       <div className={style.items}>
         {[...new Array(3)].map((item, index) => (
-          <OneEvent key={index} />
+          <OneEvent key={index} backgroundColor='#FF686D' />
         ))}
       </div>
     </div>

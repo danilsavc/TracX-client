@@ -1,17 +1,20 @@
 import React from "react";
-import Navbar from "./Navbar";
+import { useLocation } from "react-router-dom";
 
 import style from "./Header.module.scss";
+import Navbar from "./Navbar";
 
 const Header = () => {
-  const pathHome = true;
+  const location = useLocation();
 
-  if (pathHome) {
+  if (location.pathname === "/") {
     return (
       <div className={style.header}>
         <Navbar />
-        <div className={style.span}>
-          <span>Залишайтеся впевненими з TracX: ваш надійний трекер IT подій!</span>
+        <div className={style.container}>
+          <div className={style.span}>
+            <span>Залишайтеся впевненими з TracX: ваш надійний трекер IT подій!</span>
+          </div>
         </div>
       </div>
     );

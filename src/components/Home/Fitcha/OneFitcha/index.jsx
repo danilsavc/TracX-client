@@ -2,14 +2,15 @@ import React from "react";
 
 import style from "./OneFitcha.module.scss";
 
-const OneFitcha = ({ title }) => {
+const OneFitcha = ({ img, title }) => {
   return (
     <div className={style.content}>
       <div className={style.box}>
         <div className={style.ring}>
-          <span>{title}</span>
+          <img src={img} alt='svg' />
         </div>
       </div>
+      <span>{title}</span>
     </div>
   );
 };

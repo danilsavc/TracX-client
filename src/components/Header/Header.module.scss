@@ -5,17 +5,22 @@
   background-size: 100%;
   margin: 0 auto;
 
-  .span {
-    display: flex;
-    margin-top: 50px;
-    margin-left: 100px;
-    span {
-      width: 700px;
-      font-weight: 500;
-      font-size: 80px;
-      line-height: 80px;
-      letter-spacing: 0.8px;
-      color: #ffffff;
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .span {
+      display: flex;
+      margin-top: 50px;
+      margin-left: 100px;
+      span {
+        width: 700px;
+        font-weight: 500;
+        font-size: 80px;
+        line-height: 80px;
+        letter-spacing: 0.8px;
+        color: #ffffff;
+      }
     }
   }
 }

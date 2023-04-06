@@ -19,7 +19,7 @@
       height: 50px;
 
       background: none;
-      border: 1px solid #005bff;
+      border: 1px solid orangered;
       border-radius: 1000px;
 
       font-style: normal;
@@ -28,14 +28,18 @@
       line-height: 20px;
       text-align: center;
       letter-spacing: 0.4px;
-      color: #000b14;
+      color: orangered;
 
-      transition: ease 0.3s;
+      transition: ease 0.5s;
       cursor: pointer;
 
       &:hover {
-        background: #005bff;
+        background: orangered;
         color: white;
+      }
+
+      &:focus {
+        background-color: orange;
       }
     }
   }

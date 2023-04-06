@@ -15,22 +15,24 @@ const Navbar = () => {
 
   return (
     <div className={style.navbar}>
-      <img src={logo} alt='logo' />
-      <nav className={style.nav}>
-        <NavLink to='/' className={isActive}>
-          <span>Головна</span>
-        </NavLink>
-        <NavLink to='/events' className={isActive}>
-          <span>Івенти</span>
-        </NavLink>
-        <NavLink to='/about-us' className={isActive}>
-          <span>Про нас</span>
-        </NavLink>
-        <NavLink to='/contact' className={isActive}>
-          <span>Контакти</span>
-        </NavLink>
-      </nav>
-      <button onClick={() => setModalActive(true)}>Увійти</button>
+      <div className={style.container}>
+        <img src={logo} alt='logo' />
+        <nav className={style.nav}>
+          <NavLink to='/' className={isActive}>
+            <span>Головна</span>
+          </NavLink>
+          <NavLink to='/events' className={isActive}>
+            <span>Івенти</span>
+          </NavLink>
+          <NavLink to='/about-us' className={isActive}>
+            <span>Про нас</span>
+          </NavLink>
+          <NavLink to='/contact' className={isActive}>
+            <span>Контакти</span>
+          </NavLink>
+        </nav>
+        <button onClick={() => setModalActive(true)}>Увійти</button>
+      </div>
 
       <Modal active={modalActive} setActive={setModalActive}>
         <Auth />

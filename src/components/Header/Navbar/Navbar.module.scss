@@ -1,73 +1,75 @@
 .navbar {
-  display: grid;
-  grid-template-columns: 30px repeat(3, 1fr) 30px;
-  grid-template-areas: ". logo ul button .";
-  align-items: center;
-
-  min-height: 80px;
-  width: 1400px;
-
   background: rgba(16, 17, 23, 0.1);
   backdrop-filter: blur(4px);
 
-  img {
-    grid-area: logo;
-    justify-self: start;
-    height: 50px;
-    max-width: 100px;
-  }
-
-  .nav {
-    grid-area: ul;
+  .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
+    grid-template-columns: 30px repeat(3, 1fr) 30px;
+    grid-template-areas: ". logo ul button .";
+    align-items: center;
 
-  .link {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: 0.4px;
-    color: #ffffff;
-
-    transition: ease 0.3s;
-    cursor: pointer;
-  }
-
-  .linkActive {
-    span {
-      border-bottom: 2px solid white;
+    max-width: 1400px;
+    min-height: 80px;
+    margin: 0 auto;
+    img {
+      grid-area: logo;
+      justify-self: start;
+      height: 50px;
+      max-width: 100px;
     }
-  }
 
-  .link:hover {
-    opacity: 0.5;
-  }
+    .nav {
+      grid-area: ul;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
 
-  button {
-    grid-area: button;
-    justify-self: end;
+    .link {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 0.4px;
+      color: #ffffff;
 
-    width: 93px;
-    height: 48px;
-    background: #eff3f6;
-    border-radius: 1000px;
-    border: none;
+      transition: ease 0.3s;
+      cursor: pointer;
+    }
 
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: center;
-    letter-spacing: 0.4px;
-    color: #001a34;
+    .linkActive {
+      span {
+        border-bottom: 2px solid white;
+      }
+    }
 
-    transition: ease 0.3s;
-    cursor: pointer;
-  }
+    .link:hover {
+      opacity: 0.5;
+    }
 
-  button:hover {
-    background: #d4d7da;
+    button {
+      grid-area: button;
+      justify-self: end;
+
+      width: 93px;
+      height: 48px;
+      background: #eff3f6;
+      border-radius: 1000px;
+      border: none;
+
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      letter-spacing: 0.4px;
+      color: #001a34;
+
+      transition: ease 0.3s;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #d4d7da;
+    }
   }
 }

@@ -6,8 +6,8 @@ import Header from "./Header";
 const Layout = () => {
   return (
     <>
+      <Header />
       <div className='wrapper'>
-        <Header />
         <div className='outlet'>
           <Outlet />
         </div>
