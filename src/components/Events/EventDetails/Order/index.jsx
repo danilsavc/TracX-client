@@ -1,8 +1,15 @@
 import React from "react";
 
 import styles from "./Order.module.scss";
+import { exchange } from "./../../../../exchange";
 
 const Order = () => {
+  const [euro, setEuro] = React.useState(0);
+  exchange().then((euroToUah) => {
+    let roundNumber = Math.round(2400 / euroToUah);
+    setEuro(roundNumber);
+  });
+
   return (
     <div className={styles.order}>
       <h1>Вартісь квитків</h1>
@@ -16,7 +23,7 @@ const Order = () => {
         </ul>
         <div className={styles.price}>
           <span className={styles.uah}>2400 UAH</span>
-          <span className={styles.euro}> ≈€60</span>
+          <span className={styles.euro}> ≈€{euro}</span>
         </div>
 
         <button>Записатися</button>

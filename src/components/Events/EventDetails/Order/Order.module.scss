@@ -45,22 +45,22 @@
     button {
       width: 288px;
       height: 65px;
-      background-color: orangered;
+      background-color: transparent;
+      border: 1px solid orangered;
       border-radius: 20px;
 
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
       line-height: 23px;
-      color: white;
+      color: orangered;
 
       cursor: pointer;
       transition: all 0.5s;
 
       &:hover {
-        border: 1px solid orangered;
-        background-color: white;
-        color: orangered;
+        background-color: orangered;
+        color: white;
       }
     }
   }
