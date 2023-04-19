@@ -22,6 +22,16 @@
       grid-area: ul;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+
+      a {
+        cursor: default;
+      }
+      span {
+        cursor: pointer;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
     }
 
     .link {
@@ -33,17 +43,12 @@
       color: #ffffff;
 
       transition: ease 0.3s;
-      cursor: pointer;
     }
 
     .linkActive {
       span {
         border-bottom: 2px solid white;
       }
-    }
-
-    .link:hover {
-      opacity: 0.5;
     }
 
     button {

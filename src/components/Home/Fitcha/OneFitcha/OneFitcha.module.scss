@@ -9,7 +9,7 @@
     width: 276px;
     height: 151px;
 
-    background: #ededed;
+    background: #202020;
     border-radius: 24px 24px 24px 0px;
 
     .ring {
@@ -20,7 +20,7 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: #c4c4c4;
+      background: #343434;
       @include flexCenter;
       img {
         width: 150px;

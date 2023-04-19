@@ -1,0 +1,67 @@
+.order {
+  h1 {
+    font-weight: 700;
+    font-size: 26px;
+    margin: 40px 0 20px;
+  }
+  &__box {
+    padding: 46px 36px 33px;
+    display: grid;
+    row-gap: 20px;
+    background-color: #f5f3ea;
+    max-width: 360px;
+
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    li {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      color: #121314;
+      margin-bottom: 10px;
+
+      &::before {
+        content: url(https://fwdays.com/images/check-price.png);
+        margin-right: 5px;
+      }
+    }
+
+    .price {
+      text-align: center;
+    }
+
+    .uah,
+    .euro {
+      font-weight: 700;
+      font-size: 24px;
+    }
+    .euro {
+      color: #727272;
+    }
+    button {
+      width: 288px;
+      height: 65px;
+      background-color: orangered;
+      border-radius: 20px;
+
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 23px;
+      color: white;
+
+      cursor: pointer;
+      transition: all 0.5s;
+
+      &:hover {
+        border: 1px solid orangered;
+        background-color: white;
+        color: orangered;
+      }
+    }
+  }
+}

@@ -1,8 +1,12 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 
 import styles from "./OneEvent.module.scss";
 
 import startup from "../../../Assets/img/startup.svg";
+
+import { EVENTS_ROUTE } from "../../../utils/consts";
+
 
 const OneEvent = ({ backgroundColor }) => {
   const style = {
@@ -27,8 +31,8 @@ const OneEvent = ({ backgroundColor }) => {
           Fullstack Developer
         </span>
       </div>
-
-      <button>Детальніше</button>
+      <NavLink to={EVENTS_ROUTE + "/:id"}><button>Детальніше</button></NavLink>
+      
     </div>
   );
 };

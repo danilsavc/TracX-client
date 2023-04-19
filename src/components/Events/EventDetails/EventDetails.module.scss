@@ -1,0 +1,92 @@
+.container {
+  .header {
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    &__box {
+      max-width: 1169px;
+      margin: 0 auto;
+      padding: 62px 24px;
+      color: #ffffff;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr repeat(3, 0.5fr);
+      grid-template-areas:
+        "title img"
+        "subtitle img"
+        "details img"
+        "btn img";
+      column-gap: 50px;
+      .title {
+        grid-area: title;
+        font-size: 50px;
+      }
+      .subtitle {
+        grid-area: subtitle;
+        font-size: 18px;
+      }
+      .details {
+        grid-area: details;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .data {
+          font-weight: 700;
+          font-size: 18px;
+        }
+        .format {
+          font-size: 18px;
+        }
+      }
+
+      .btn {
+        grid-area: btn;
+        justify-self: center;
+
+        width: 318px;
+        height: 50px;
+        background-color: rgba(209, 213, 219, 0.2);
+        border: 1px solid white;
+        border-radius: 20px;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+        color: #ffffff;
+
+        cursor: pointer;
+        transition: all 0.5s;
+
+        &:hover {
+          border: 1px solid orangered;
+          color: orangered;
+        }
+      }
+
+      img {
+        grid-area: img;
+        align-self: flex-start;
+      }
+    }
+  }
+
+  .main {
+    margin-top: 30px;
+    h1 {
+      color: #ffffff;
+      font-size: 18px;
+      padding: 4px;
+      margin: 16px 0 16px;
+    }
+    p li {
+      font-size: 18px;
+    }
+    li::before {
+      content: "—";
+      margin-right: 5px;
+    }
+  }
+}
