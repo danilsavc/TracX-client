@@ -17,10 +17,10 @@ const Footer = () => {
         <nav className={style.hard}>
           <h2>Технічні івенти</h2>
           <NavLink to='/' className={isActive}>
-            <span>FrontEnd</span>
+            <span>PHP</span>
           </NavLink>
           <NavLink to='/' className={isActive}>
-            <span>BackEnd</span>
+            <span>Python</span>
           </NavLink>
           <NavLink to='/' className={isActive}>
             <span>Java</span>
@@ -30,13 +30,13 @@ const Footer = () => {
         <nav className={style.soft}>
           <h2>Нетехнічні курси</h2>
           <NavLink to='/' className={isActive}>
-            <span>SMM</span>
+            <span>PM</span>
           </NavLink>
           <NavLink to='/' className={isActive}>
-            <span>Project Manajer</span>
+            <span>Data Science</span>
           </NavLink>
           <NavLink to='/' className={isActive}>
-            <span>Businnes Analyst</span>
+            <span>Business</span>
           </NavLink>
         </nav>
 

@@ -1,0 +1,25 @@
+.content {
+  display: flex;
+  justify-content: center;
+  border-radius: 50px;
+  margin-top: 30px;
+  .root {
+    width: 700px;
+    height: 520px;
+    .content {
+    }
+
+    :global {
+      .carousel {
+        .control-dots {
+          .dot {
+            box-shadow: none;
+            background: #41c2aa;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}
