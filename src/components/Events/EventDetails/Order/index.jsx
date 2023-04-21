@@ -12,7 +12,7 @@ const Order = () => {
 
   return (
     <div className={styles.order}>
-      <h1>Вартісь квитків</h1>
+      <h1 id='order'>Вартісь квитків</h1>
       <div className={styles.order__box}>
         <h1>Attendee's Ticket</h1>
         <ul>

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-scroll";
 import styles from "./EventDetails.module.scss";
 
 import logo from "../../../Assets/img/logo.svg";
@@ -20,7 +20,9 @@ const EventDetails = () => {
             <span className={styles.data}>29 квітня</span>
             <span className={styles.format}>Online</span>
           </div>
-          <button className={styles.btn}>Записатися</button>
+          <Link to='order' spy={true} smooth={true} offset={-50} duration={500}>
+            <button className={styles.btn}>Записатися</button>
+          </Link>
           <img src={logo} alt='logo' />
         </div>
       </div>

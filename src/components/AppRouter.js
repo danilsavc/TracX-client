@@ -9,7 +9,6 @@ import EventDetails from "./Events/EventDetails";
 import Layout from "./Layout";
 import { CONTACTS_ROUTE, EVENTS_ROUTE, ABOUTUS_ROUTE } from "../utils/consts";
 
-
 const AppRouter = () => {
   return (
     <Routes>

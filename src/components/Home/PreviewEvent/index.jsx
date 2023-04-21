@@ -2,13 +2,16 @@ import React from "react";
 
 import style from "./PreviewEvent.module.scss";
 import OneEvent from "../../Events/OneEvent";
+import { NavLink } from "react-router-dom";
 
 const PreviewEvents = () => {
   return (
     <div className={style.events}>
       <div className={style.header}>
         <h1>Події</h1>
-        <button>Усі події</button>
+        <NavLink to='/events'>
+          <button>Усі події</button>
+        </NavLink>
       </div>
 
       <div className={style.items}>

@@ -1,0 +1,15 @@
+@import "../../style/Normal_Classes.module.scss";
+
+.events {
+  h1 {
+    @include title-style;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+}
