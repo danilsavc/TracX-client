@@ -5,11 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 
 import style from "./Carousel.module.scss";
 
-const img = [
-  "https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg",
-  "https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg",
-  "https://images.pexels.com/photos/3182796/pexels-photo-3182796.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-];
+const img = ["https://shorturl.at/loz02", "https://shorturl.at/gnqEQ", "https://shorturl.at/fjQ26"];
 
 const CarouselTeam = () => {
   return (
@@ -21,7 +17,7 @@ const CarouselTeam = () => {
         showThumbs={false}
         swipeable={true}
         emulateTouch={true}
-        // autoPlay={true}
+        autoPlay={true}
         infiniteLoop={true}
       >
         {img.map((img, index) => (
