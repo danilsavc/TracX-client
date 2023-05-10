@@ -6,8 +6,14 @@ import Home from "./Home";
 import Events from "./Events";
 import AboutUs from "./AboutUs";
 import EventDetails from "./Events/EventDetails";
+import PersonalAccount from "./PersonalAccount";
 import Layout from "./Layout";
-import { CONTACTS_ROUTE, EVENTS_ROUTE, ABOUTUS_ROUTE } from "../utils/consts";
+import {
+  CONTACTS_ROUTE,
+  EVENTS_ROUTE,
+  ABOUTUS_ROUTE,
+  PERSONALACCOUNT_ROUTE,
+} from "../utils/consts";
 
 const AppRouter = () => {
   return (
@@ -18,6 +24,7 @@ const AppRouter = () => {
         <Route path={CONTACTS_ROUTE} element={<Contacts />}></Route>
         <Route path={EVENTS_ROUTE} element={<Events />}></Route>
         <Route path={EVENTS_ROUTE + "/:id"} element={<EventDetails />}></Route>
+        <Route path={PERSONALACCOUNT_ROUTE} element={<PersonalAccount />}></Route>
       </Route>
     </Routes>
   );

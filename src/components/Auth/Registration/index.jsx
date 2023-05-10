@@ -1,6 +1,7 @@
 import React from "react";
 
 import style from "./Registration.module.scss";
+import { NavLink } from "react-router-dom";
 
 const Registration = ({ setReg }) => {
   return (
@@ -16,7 +17,10 @@ const Registration = ({ setReg }) => {
       <span>Обов'язково для заповнення</span>
       <input type='password' placeholder='Повторіть пароль' />
       <span>Обов'язково для заповнення</span>
-      <button>Зареєструватися</button>
+      <NavLink className={style.btn} to='/cabinet'>
+        <button>Зареєструватися</button>
+      </NavLink>
+
       <p onClick={() => setReg(true)}>Увійти в особистий кабінет</p>
     </div>
   );

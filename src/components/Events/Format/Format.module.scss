@@ -1,0 +1,64 @@
+@import "../../../style/Normal_Classes.module.scss";
+
+.format {
+  margin: 50px 0 50px;
+  .content {
+    .mainBlock {
+      width: 200px;
+      height: 50px;
+      @include flexCenter;
+      column-gap: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #c8c8c8;
+      font-size: 20px;
+
+      cursor: pointer;
+
+      .imgClick {
+        rotate: 180deg;
+        width: 25px;
+        height: 20px;
+      }
+
+      img {
+        width: 25px;
+        height: 20px;
+        transition: all 0.3s ease;
+      }
+    }
+
+    .items {
+      // Відобразити повзунок прокрутки
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      // Кольори для повзунка та трека
+      &::-webkit-scrollbar-thumb {
+        background-color: #666;
+      }
+
+      position: absolute;
+      width: 200px;
+      max-height: 250px;
+      overflow-y: scroll;
+
+      font-size: 20px;
+      border: 1px solid #c8c8c8;
+      background-color: #fff;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .formatItem {
+      border-bottom: 1px solid #c8c8c8;
+      padding: 12px 20px;
+      width: 100%;
+
+      transition: all 0.3s ease;
+      &:hover {
+        color: #3f8faa;
+      }
+    }
+  }
+}

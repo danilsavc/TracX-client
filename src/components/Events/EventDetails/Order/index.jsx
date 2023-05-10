@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./Order.module.scss";
-import { exchange } from "./../../../../exchange";
+import { exchange } from "../../../../utils/exchange";
 
 const Order = () => {
   const [euro, setEuro] = React.useState(0);
