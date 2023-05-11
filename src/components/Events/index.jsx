@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import formatDate from "../../utils/formatDate";
-import { fetchEvents } from "../../Redux/slices/events";
+import { fetchEvents, setCurrentPage } from "../../Redux/slices/events";
 
 import style from "./Events.module.scss";
 import OneEvent from "./OneEvent";
@@ -9,11 +9,12 @@ import Category from "./Category";
 import Format from "./Format";
 import { getFormatNameById } from "../../utils/formatUtils";
 import EventsSkeleton from "../Skeletons/EventsSkeleton";
+import Pagination from "../Pagination";
 
 const Events = () => {
   const dispatch = useDispatch();
   const { currentCategoryId, currentFormatId } = useSelector((state) => state.filter);
-  const { items, status } = useSelector((state) => state.events);
+  const { items, status, countPage, currentPage } = useSelector((state) => state.events);
   const { format } = useSelector((state) => state.filter);
 
   const isLoading = status === "loading";
@@ -23,16 +24,22 @@ const Events = () => {
     return formatName ? formatName : "Невідомий";
   };
 
+  const onChangePage = (number) => {
+    dispatch(setCurrentPage(number));
+  };
+
   React.useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(
       fetchEvents({
         currentFormatId,
         currentCategoryId,
+        currentPage,
       })
     );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentFormatId, currentCategoryId]);
+  }, [currentFormatId, currentCategoryId, currentPage]);
 
   return (
     <div className={style.events}>
@@ -43,7 +50,7 @@ const Events = () => {
       </div>
 
       <div className={style.items}>
-        {(isLoading ? [...Array(6)] : items.rows).map((item, index) =>
+        {(isLoading ? [...Array(6)] : items.events.rows).map((item, index) =>
           isLoading ? (
             <EventsSkeleton key={index} />
           ) : (
@@ -57,6 +64,10 @@ const Events = () => {
             />
           )
         )}
+      </div>
+
+      <div className={style.pagination}>
+        <Pagination countPage={countPage} currentPage={currentPage} onChangePage={onChangePage} />
       </div>
     </div>
   );

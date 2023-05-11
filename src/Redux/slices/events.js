@@ -2,27 +2,29 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { $host } from "../../http/index";
 
 export const fetchEvents = createAsyncThunk("events/fetchEvents", async (params) => {
-  const { currentCategoryId, currentFormatId } = params;
+  const { currentCategoryId, currentFormatId, currentPage } = params;
 
   if (currentFormatId === 0 && currentCategoryId > 0) {
     const { data } = await $host.get(
-      `/api/event/?categoryId=${currentCategoryId}&page=1&limit=${20}`
+      `/api/event/?categoryId=${currentCategoryId}&page=${currentPage}&limit=${6}`
     );
     return data;
   }
 
   if (currentCategoryId === 0 && currentFormatId > 0) {
-    const { data } = await $host.get(`/api/event/?formatId=${currentFormatId}&page=1&limit=${20}`);
+    const { data } = await $host.get(
+      `/api/event/?formatId=${currentFormatId}&page=${currentPage}&limit=${6}`
+    );
     return data;
   }
 
   if (currentCategoryId === 0 && currentFormatId === 0) {
-    const { data } = await $host.get(`/api/event/?page=1&limit=${20}`);
+    const { data } = await $host.get(`/api/event/?page=${currentPage}&limit=${6}`);
     return data;
   }
 
   const { data } = await $host.get(
-    `/api/event/?categoryId=${currentCategoryId}&formatId=${currentFormatId}&page=1&limit=${20}`
+    `/api/event/?categoryId=${currentCategoryId}&formatId=${currentFormatId}&page=${currentPage}&limit=${6}`
   );
   return data;
 });
@@ -49,8 +51,8 @@ const eventsSlice = createSlice({
     },
     [fetchEvents.fulfilled]: (state, actions) => {
       state.items = actions.payload;
+      state.countPage = actions.payload.totalPages;
       state.status = "loaded";
-      state.countPage = actions.payload.countPage;
     },
     [fetchEvents.rejected]: (state) => {
       state.items = [];
@@ -59,5 +61,5 @@ const eventsSlice = createSlice({
   },
 });
 
-export const { setCurrenPage } = eventsSlice.actions;
+export const { setCurrentPage } = eventsSlice.actions;
 export const eventsReducer = eventsSlice.reducer;
