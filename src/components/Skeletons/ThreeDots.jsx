@@ -9,9 +9,9 @@ const ThreeDots = (props) => (
     backgroundColor='transparent'
     {...props}
   >
-    <circle cx='150' cy='86' r='8' />
-    <circle cx='194' cy='86' r='8' />
-    <circle cx='238' cy='86' r='8' />
+    <circle cx='150' cy='80' r='8' />
+    <circle cx='194' cy='80' r='8' />
+    <circle cx='238' cy='80' r='8' />
   </ContentLoader>
 );
 

@@ -14,6 +14,7 @@ import styles from "./EventDetails.module.scss";
 
 import logo from "../../../Assets/img/logo.svg";
 import Order from "./Order";
+import NotFound from "../../NotFound";
 
 const EventDetails = () => {
   const { id } = useParams();
@@ -27,7 +28,7 @@ const EventDetails = () => {
   let item = [];
   let itemInfo = [];
   const { data, isLoading, isError } = useQuery("event", () => fetchEvent(id), {
-    keepPreviousData: true,
+    refetchOnWindowFocus: false,
   });
 
   const {
@@ -35,18 +36,24 @@ const EventDetails = () => {
     isLoading: isLoadingInfo,
     isError: isErrorInfo,
   } = useQuery("event-info", () => fetchEventInfo(id), {
-    keepPreviousData: true,
+    refetchOnWindowFocus: false,
   });
 
   if (isLoading && isLoadingInfo) {
-    return <ThreeDots />;
+    return (
+      <div className={styles.skeleton}>
+        <ThreeDots />
+      </div>
+    );
+  } else if (isError || isErrorInfo || !item || !itemInfo) {
+    return <NotFound />;
   } else {
-    item = data.data;
-    itemInfo = dataInfo.data;
+    item = data?.data || [];
+    itemInfo = dataInfo?.data || [];
   }
 
   if (isError && isErrorInfo) {
-    return <ThreeDots />;
+    return <NotFound />;
   }
 
   const style = {

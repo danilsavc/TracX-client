@@ -2,7 +2,14 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { $host } from "../../http/index";
 
 export const fetchEvents = createAsyncThunk("events/fetchEvents", async (params) => {
-  const { currentCategoryId, currentFormatId, currentPage } = params;
+  const { currentCategoryId, currentFormatId, currentPage, searchValue } = params;
+
+  if (searchValue) {
+    const { data } = await $host.get(
+      `/api/event/?page=${currentPage}&limit=${6}&search=${searchValue}`
+    );
+    return data;
+  }
 
   if (currentFormatId === 0 && currentCategoryId > 0) {
     const { data } = await $host.get(

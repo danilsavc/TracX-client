@@ -14,9 +14,42 @@
   }
 
   .filter {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 200px 200px 1fr;
     column-gap: 30px;
+    align-items: center;
+
+    .search {
+      display: flex;
+      // position: absolute;
+      input {
+        min-height: 50px;
+        min-width: calc(100% - 60px);
+        margin-bottom: 20px;
+        padding-left: 50px;
+        border: 1px solid #c8c8c8;
+
+        font-size: 20px;
+      }
+      .search {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: 40px;
+        top: 10px;
+        opacity: 0.5;
+      }
+      .cancel {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -50px;
+        top: 10px;
+        opacity: 0.5;
+
+        cursor: pointer;
+      }
+    }
   }
 
   .pagination {
