@@ -7,7 +7,7 @@ import startup from "../../../Assets/img/startup.svg";
 
 import { EVENTS_ROUTE } from "../../../utils/consts";
 
-const OneEvent = ({ bcgColor, data, format, title, descriptions }) => {
+const OneEvent = ({ bcgColor, data, format, title, descriptions, id }) => {
   const style = {
     backgroundColor: bcgColor,
   };
@@ -27,7 +27,7 @@ const OneEvent = ({ bcgColor, data, format, title, descriptions }) => {
       <div className={styles.description}>
         <span>{descriptions}</span>
       </div>
-      <NavLink to={EVENTS_ROUTE + "/:id"}>
+      <NavLink to={EVENTS_ROUTE + `/${id}`}>
         <button>Детальніше</button>
       </NavLink>
     </div>

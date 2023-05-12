@@ -8,6 +8,7 @@ import {
 
 import styles from "./Category.module.scss";
 import down from "../../../Assets/img/down.svg";
+import { setCurrentPage } from "../../../Redux/slices/events";
 
 const Category = () => {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ const Category = () => {
   const onClickCategory = (categoryName, index) => {
     dispatch(setCurentCategory(categoryName));
     dispatch(setCurentCategoryId(index));
+    dispatch(setCurrentPage(1));
     setClickMainBlock(false);
   };
 

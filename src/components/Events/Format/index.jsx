@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./Format.module.scss";
 import down from "../../../Assets/img/down.svg";
 import { fetchFormat, setCurentFormat, setCurentFormatId } from "../../../Redux/slices/filter";
+import { setCurrentPage } from "../../../Redux/slices/events";
 
 const Format = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ const Format = () => {
   const onClickCategory = (formatName, index) => {
     dispatch(setCurentFormat(formatName));
     dispatch(setCurentFormatId(index));
+    dispatch(setCurrentPage(1));
     setClickMainBlock(false);
   };
 

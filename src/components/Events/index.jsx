@@ -60,6 +60,7 @@ const Events = () => {
               format={getFormat(format, item.formatId)}
               descriptions={item.descriptions}
               bcgColor={item.bcgColor}
+              id={item.id}
               key={index}
             />
           )

@@ -1,24 +1,67 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-scroll";
+import { fetchEvent } from "../../../http/fetchEvent";
+import { fetchEventInfo } from "../../../http/fetchEventInfo";
+import formatDate from "../../../utils/formatDate";
+import { getFormatNameById } from "../../../utils/formatUtils";
+import { fetchFormat } from "../../../Redux/slices/filter";
+import ThreeDots from "../../Skeletons/ThreeDots";
+
 import styles from "./EventDetails.module.scss";
 
 import logo from "../../../Assets/img/logo.svg";
 import Order from "./Order";
 
 const EventDetails = () => {
+  const { id } = useParams();
+  const { format } = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(fetchFormat());
+  }, [dispatch]);
+
+  let item = [];
+  let itemInfo = [];
+  const { data, isLoading, isError } = useQuery("event", () => fetchEvent(id), {
+    keepPreviousData: true,
+  });
+
+  const {
+    data: dataInfo,
+    isLoading: isLoadingInfo,
+    isError: isErrorInfo,
+  } = useQuery("event-info", () => fetchEventInfo(id), {
+    keepPreviousData: true,
+  });
+
+  if (isLoading && isLoadingInfo) {
+    return <ThreeDots />;
+  } else {
+    item = data.data;
+    itemInfo = dataInfo.data;
+  }
+
+  if (isError && isErrorInfo) {
+    return <ThreeDots />;
+  }
+
   const style = {
-    backgroundColor: "#FF686D",
+    backgroundColor: item.bcgColor,
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.header} style={style}>
         <div className={styles.header__box}>
-          <h1 className={styles.title}>Воркшоп: Why Next JS is a big deal in 2023</h1>
-          <h2 className={styles.subtitle}>Next.js online воркшоп</h2>
+          <h1 className={styles.title}>{item.title}</h1>
+          <h2 className={styles.subtitle}>{item.descriptions}</h2>
           <div className={styles.details}>
-            <span className={styles.data}>29 квітня</span>
-            <span className={styles.format}>Online</span>
+            <span className={styles.data}>{formatDate(item.data)}</span>
+            <span className={styles.format}>{getFormatNameById(format, item.formatId)}</span>
           </div>
           <Link to='order' spy={true} smooth={true} offset={-50} duration={500}>
             <button className={styles.btn}>Записатися</button>
@@ -28,25 +71,22 @@ const EventDetails = () => {
       </div>
 
       <div className={styles.main}>
-        <h1 style={style}>Формат:</h1>
-        <p>Дата та час: 29 квітня, 12:00 - 15:30, (Kyiv time, GMT+3).</p>
-        <p>Воркшоп відбудеться українською мовою.</p>
-        <p>Подія пройде онлайн, використовуючи платформу Zoom.</p>
-        <h1 style={style}>Аудиторія:</h1>
-        <p>Необхідно базові знання та досвід з React.</p>
-        <h1 style={style}>Програма:</h1>
-        <ul>
-          <li>Знайомство</li>
-          <li>Презентація про Next JS у 2023</li>
-          <li>Розробка додатку з SSR на Next JS</li>
-          <li>Розробка SPA на Next JS</li>
-          <li>Деплой на Vercel</li>
-          <li>Деплой на AWS</li>
-          <li>Q&A</li>
-        </ul>
+        {itemInfo.map((info, index) => (
+          <div key={index}>
+            <h1 style={style}>{info.title}</h1>
+            <p>{info.descriptions}</p>
+          </div>
+        ))}
       </div>
 
-      <Order />
+      <div className={styles.tags}>
+        <h1 style={style}>Ключові хешетеги:</h1>
+        {item.tags.map((tag, index) => (
+          <span key={index}>#{tag}</span>
+        ))}
+      </div>
+
+      <Order price={item.price} />
     </div>
   );
 };

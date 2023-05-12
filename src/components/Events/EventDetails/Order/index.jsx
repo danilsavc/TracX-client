@@ -2,13 +2,19 @@ import React from "react";
 
 import styles from "./Order.module.scss";
 import { exchange } from "../../../../utils/exchange";
+import { useQuery } from "react-query";
+import ThreeDots from "../../../Skeletons/ThreeDots";
 
-const Order = () => {
-  const [euro, setEuro] = React.useState(0);
-  exchange().then((euroToUah) => {
-    let roundNumber = Math.round(2400 / euroToUah);
-    setEuro(roundNumber);
-  });
+const Order = ({ price }) => {
+  const { data, isLoading, isError } = useQuery("exchange", exchange, { keepPreviousData: true });
+
+  if (isLoading) {
+    return <ThreeDots />;
+  }
+
+  if (isError) {
+    return <ThreeDots />;
+  }
 
   return (
     <div className={styles.order}>
@@ -22,8 +28,8 @@ const Order = () => {
           <li>Сертефікат учасника</li>
         </ul>
         <div className={styles.price}>
-          <span className={styles.uah}>2400 UAH</span>
-          <span className={styles.euro}> ≈€{euro}</span>
+          <span className={styles.uah}>{price} UAH</span>
+          <span className={styles.euro}> ≈€{data ? Math.ceil(price / data) : 0}</span>
         </div>
 
         <button>Записатися</button>
