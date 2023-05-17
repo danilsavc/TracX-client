@@ -1,0 +1,87 @@
+@import "../../../../style/Normal_Classes.module.scss";
+
+.content {
+  width: 350px;
+  height: 360px;
+
+  padding: 1rem;
+  border-radius: 20px;
+
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+
+  .header {
+    display: grid;
+    grid-template-columns: 13px repeat(2, 1fr);
+    align-items: center;
+    margin-bottom: 2rem;
+
+    font-weight: 375;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    color: #ffffff;
+
+    img {
+      width: 12px;
+      height: 12px;
+    }
+
+    .status {
+      justify-self: end;
+
+      width: 75px;
+      height: 20px;
+
+      border-radius: 0.75rem;
+      text-align: center;
+      text-transform: capitalize;
+
+      background-color: rgba(209, 213, 219, 0.2);
+    }
+  }
+
+  .title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 0.6px;
+    color: #ffffff;
+
+    margin-bottom: 32px;
+  }
+
+  .description {
+    width: 300px;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.6px;
+    color: #ffffff;
+
+    margin-bottom: 32px;
+  }
+
+  button {
+    align-self: flex-end;
+
+    width: 100%;
+    height: 50px;
+    background-color: rgba(209, 213, 219, 0.2);
+    border: 1px solid white;
+    border-radius: 20px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #ffffff;
+
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      border: 1px solid orangered;
+      color: orangered;
+    }
+  }
+}

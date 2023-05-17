@@ -1,8 +1,10 @@
 .header {
   min-height: 500px;
-  background-image: url("https://i.onthe.io/smngoz2584u0l4624.5eeead00.jpg");
-  background-position: center;
-  background-size: 100%;
+  background-image: url("../../Assets/img/header.svg");
+  background-position: right;
+  background-size: 40% auto;
+  background-repeat: no-repeat;
+  background-color: #273da4;
   margin: 0 auto;
 
   .container {
@@ -23,11 +25,4 @@
       }
     }
   }
-}
-
-.headerSecond {
-  height: 80px;
-  background-image: url("https://i.onthe.io/smngoz2584u0l4624.5eeead00.jpg");
-  background-position: center;
-  background-size: 100%;
 }

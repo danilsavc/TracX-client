@@ -1,7 +1,5 @@
 .navbar {
-  background: rgba(16, 17, 23, 0.1);
-  backdrop-filter: blur(4px);
-
+  // background-color: #273da4;
   .container {
     display: grid;
     grid-template-columns: 30px repeat(3, 1fr) 30px;
@@ -58,7 +56,7 @@
       width: 93px;
       height: 48px;
       background: #eff3f6;
-      border-radius: 1000px;
+      border-radius: 10px;
       border: none;
 
       font-style: normal;

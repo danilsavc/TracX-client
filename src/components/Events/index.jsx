@@ -62,6 +62,7 @@ const Events = () => {
 
   const onChangeSearch = (event) => {
     setSearchValue(event.target.value);
+    dispatch(setCurrentPage(1));
   };
 
   return (

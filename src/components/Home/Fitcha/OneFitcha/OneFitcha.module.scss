@@ -1,5 +1,9 @@
 @import "../../../../style/Normal_Classes.module.scss";
 
+$content-color: #001a34;
+$box-color: #fb6542;
+$ring-color: #ffbb00;
+
 .content {
   display: grid;
   grid-template-rows: 160px 1fr;
@@ -9,7 +13,7 @@
     width: 276px;
     height: 151px;
 
-    background: #202020;
+    background: $box-color;
     border-radius: 24px 24px 24px 0px;
 
     .ring {
@@ -20,22 +24,21 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: #343434;
+      background: $ring-color;
       @include flexCenter;
       img {
         width: 150px;
         height: 150px;
-        opacity: 0.8;
       }
     }
   }
+
   span {
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
     text-align: center;
-
     letter-spacing: 0.6px;
-    color: #001a34;
+    color: $content-color;
   }
 }

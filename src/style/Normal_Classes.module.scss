@@ -10,14 +10,15 @@
   width: 370px;
   height: 56px;
   border-radius: 6px;
-  border: 1px solid #dee5ea;
+  // border: 1px solid #dee5ea;
+  background-color: #f4f4f4;
   padding: 20px;
 
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0.7px;
-  color: #667585;
+  color: #1f1f1f;
 }
 
 @mixin flexCenter {

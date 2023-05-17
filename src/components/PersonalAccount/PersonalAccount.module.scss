@@ -1,0 +1,50 @@
+.carouselTabs {
+  margin-top: 30px;
+  .tabButtons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .tabButton {
+    max-width: 100px;
+    max-height: 50px;
+
+    padding: 10px 20px;
+    font-size: 16px;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &.active {
+      // Стилі для активного табу
+      border-bottom: 3px solid #001a34;
+      opacity: 0.8;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .slideContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h1 {
+      font-weight: 500;
+      font-size: 56px;
+      line-height: 60px;
+      letter-spacing: 0.8px;
+      color: #001a34;
+      margin-bottom: 3rem;
+      margin-top: 3rem;
+    }
+  }
+}

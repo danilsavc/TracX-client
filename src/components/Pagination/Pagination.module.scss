@@ -9,9 +9,9 @@
       width: 41px;
       line-height: 38px;
       height: 41px;
-      // background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
-      // background-color: orangered;
+
       border: 1px solid orangered;
+      border-radius: 10px;
       margin-right: 14px;
       cursor: pointer;
       transition: ease 0.2s;
@@ -24,7 +24,6 @@
       transition: all 0.1s linear;
 
       &:hover {
-        // background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
         background-color: orangered;
         color: white;
       }

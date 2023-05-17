@@ -78,19 +78,18 @@ const EventDetails = () => {
       </div>
 
       <div className={styles.main}>
-        {itemInfo.map((info, index) => (
-          <div key={index}>
-            <h1 style={style}>{info.title}</h1>
-            <p>{info.descriptions}</p>
-          </div>
-        ))}
+        {itemInfo &&
+          itemInfo.map((info, index) => (
+            <div key={index}>
+              <h1 style={style}>{info.title}</h1>
+              <p>{info.descriptions}</p>
+            </div>
+          ))}
       </div>
 
       <div className={styles.tags}>
-        <h1 style={style}>Ключові хешетеги:</h1>
-        {item.tags.map((tag, index) => (
-          <span key={index}>#{tag}</span>
-        ))}
+        <h1 style={style}>Ключові хештеги:</h1>
+        {item.tags && item.tags.map((tag, index) => <span key={index}>#{tag}</span>)}
       </div>
 
       <Order price={item.price} />

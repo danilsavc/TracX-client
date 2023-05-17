@@ -1,0 +1,45 @@
+.information {
+  width: 50%;
+  display: grid;
+  row-gap: 30px;
+  .block {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+
+    .title {
+      font-size: 30px;
+      color: rgb(16, 16, 20);
+      justify-self: flex-start;
+    }
+
+    .content {
+      width: 100%;
+      font-size: 32px;
+      color: rgb(155, 155, 155);
+      text-align: start;
+      border-bottom: 1px solid rgb(155, 155, 155);
+    }
+  }
+
+  button {
+    height: 50px;
+    background: #231b12;
+    border-radius: 10px;
+    border: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: #ffff;
+    transition: ease 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid black;
+      color: black;
+      background-color: white;
+    }
+  }
+}
