@@ -6,13 +6,14 @@ import logo from "../../../Assets/img/logo.svg";
 
 import Modal from "../../Modal";
 import Auth from "../../Auth";
+import { useDispatch } from "react-redux";
+import { openModal } from "../../../Redux/slices/modal";
 
 const isActive = ({ isActive }) =>
   isActive ? `${styles.link} ${styles.linkActive}` : `${styles.link}`;
 
 const Navbar = () => {
-  const [modalActive, setModalActive] = React.useState(false);
-
+  const dispatch = useDispatch();
   const location = useLocation();
   const style = {
     backgroundColor: "#273da4",
@@ -38,10 +39,10 @@ const Navbar = () => {
             <span>Контакти</span>
           </NavLink>
         </nav>
-        <button onClick={() => setModalActive(true)}>Увійти</button>
+        <button onClick={() => dispatch(openModal())}>Увійти</button>
       </div>
 
-      <Modal active={modalActive} setActive={setModalActive}>
+      <Modal>
         <Auth />
       </Modal>
     </div>

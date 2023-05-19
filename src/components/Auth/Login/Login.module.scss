@@ -2,12 +2,31 @@
 
 .login {
   display: grid;
-  grid-template-rows: 50px 61px 40px 60px 41px 80px;
-  justify-content: center;
+  grid-template-rows: 50px 1fr 50px 50px;
 
+  grid-template-areas: "title" "content" "btn" "auth";
+  row-gap: 50px;
   user-select: none;
 
+  .content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 30px;
+
+    &__box {
+      display: grid;
+      row-gap: 10px;
+      justify-content: center;
+      input {
+        min-width: 370px;
+      }
+    }
+  }
+
   h3 {
+    grid-area: title;
     font-weight: 500;
     font-size: 30px;
     line-height: 36px;
@@ -28,10 +47,17 @@
     color: #eff3f6;
   }
 
+  .errorActive {
+    color: #a5e8ff;
+    font-weight: 800;
+  }
+
   button {
+    grid-area: btn;
+
     padding: 22px 32px;
-    width: 240px;
-    height: 64px;
+    max-width: 240px;
+    max-height: 64px;
     justify-self: center;
 
     background: #32384d;
@@ -39,7 +65,7 @@
 
     font-weight: 400;
     font-size: 22px;
-    line-height: 20px;
+    line-height: 10px;
     text-align: center;
     letter-spacing: 0.7px;
     color: #eff3f6;
@@ -52,8 +78,10 @@
   }
 
   p {
+    grid-area: auth;
+    align-self: self-start;
     justify-self: center;
-    width: 110px;
+    min-width: 107px;
 
     font-weight: 400;
     font-size: 16px;
@@ -64,7 +92,7 @@
     transition: ease 0.3s;
 
     &:hover {
-      opacity: 0.7;
+      border-bottom: none;
     }
   }
 }
