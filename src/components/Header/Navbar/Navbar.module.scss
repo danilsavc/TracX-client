@@ -53,7 +53,7 @@
       grid-area: button;
       justify-self: end;
 
-      width: 93px;
+      min-width: 93px;
       height: 48px;
       background: #eff3f6;
       border-radius: 10px;
@@ -73,6 +73,33 @@
 
     button:hover {
       background: #d4d7da;
+    }
+
+    .cabinet {
+      grid-area: button;
+      justify-self: end;
+
+      min-width: 150px;
+      height: 48px;
+      background: #eff3f6;
+      border-radius: 10px;
+      border: none;
+
+      transition: ease 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background: #d4d7da;
+      }
+      a {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 0.4px;
+        color: #001a34;
+      }
     }
   }
 }

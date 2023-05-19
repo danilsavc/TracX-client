@@ -29,11 +29,10 @@ const Registration = ({ setReg }) => {
   });
 
   React.useEffect(() => {
-    if (isLoading) {
-      dispatch(closeModal());
-      navigate("/");
-    } else if (!Array.isArray(error) && error) {
+    if (!Array.isArray(error) && error) {
       window.alert(error);
+    } else if (isLoading) {
+      dispatch(closeModal());
     }
   }, [isLoading, error, dispatch, navigate]);
 
