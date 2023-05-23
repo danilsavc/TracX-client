@@ -73,7 +73,10 @@ const EventDetails = () => {
           <Link to='order' spy={true} smooth={true} offset={-50} duration={500}>
             <button className={styles.btn}>Записатися</button>
           </Link>
-          <img src={logo} alt='logo' />
+          <div className={styles.logo}>
+            <img src={logo} alt='logo' />
+            <span>TracX</span>
+          </div>
         </div>
       </div>
 

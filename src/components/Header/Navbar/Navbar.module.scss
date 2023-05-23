@@ -9,11 +9,26 @@
     max-width: 1400px;
     min-height: 80px;
     margin: 0 auto;
-    img {
+
+    .logo {
       grid-area: logo;
       justify-self: start;
-      height: 50px;
-      max-width: 100px;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      img {
+        height: 50px;
+        max-width: 100px;
+      }
+      span {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 20px;
+        letter-spacing: 0.4px;
+        color: #ffffff;
+      }
     }
 
     .nav {
@@ -27,7 +42,7 @@
       span {
         cursor: pointer;
         &:hover {
-          opacity: 0.5;
+          opacity: 0.8;
         }
       }
     }
@@ -40,24 +55,52 @@
       letter-spacing: 0.4px;
       color: #ffffff;
 
-      transition: ease 0.3s;
+      transition: ease 0.5s;
     }
 
     .linkActive {
       span {
-        border-bottom: 2px solid white;
+        padding: 10px 10px 10px;
+        border: 2px solid white;
+        border-radius: 10px;
+      }
+    }
+    .btn {
+      grid-area: button;
+      justify-self: end;
+      button {
+        min-width: 93px;
+        height: 48px;
+        background: none;
+        border-radius: 10px;
+        border: 2px solid #ffffff;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 0.4px;
+        color: #ffffff;
+
+        transition: ease 0.5s;
+        cursor: pointer;
+
+        &:hover {
+          background: #ffffff;
+          color: black;
+        }
       }
     }
 
     button {
       grid-area: button;
       justify-self: end;
-
       min-width: 93px;
       height: 48px;
-      background: #eff3f6;
+      background: none;
       border-radius: 10px;
-      border: none;
+      border: 2px solid #ffffff;
 
       font-style: normal;
       font-weight: 400;
@@ -65,14 +108,15 @@
       line-height: 20px;
       text-align: center;
       letter-spacing: 0.4px;
-      color: #001a34;
+      color: #ffffff;
 
-      transition: ease 0.3s;
+      transition: ease 0.5s;
       cursor: pointer;
-    }
 
-    button:hover {
-      background: #d4d7da;
+      &:hover {
+        background: #ffffff;
+        color: black;
+      }
     }
 
     .cabinet {

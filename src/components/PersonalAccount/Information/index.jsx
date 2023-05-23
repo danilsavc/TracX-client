@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAuth, logout } from "../../../Redux/slices/auth";
+import { logout } from "../../../Redux/slices/auth";
 import style from "./Information.module.scss";
 import { useNavigate } from "react-router-dom";
 import ThreeDots from "../../Skeletons/ThreeDots";
@@ -18,10 +18,6 @@ const Information = () => {
       navigate("/");
     }
   };
-
-  React.useEffect(() => {
-    dispatch(fetchAuth());
-  }, [dispatch]);
 
   if (isLoading) {
     return (

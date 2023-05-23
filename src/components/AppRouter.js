@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchAuth } from "../Redux/slices/auth";
 
 import Contacts from "./Contacts";
 import Home from "./Home";
@@ -16,6 +18,11 @@ import {
 } from "../utils/consts";
 
 const AppRouter = () => {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchAuth());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path='/' element={<Layout />}>

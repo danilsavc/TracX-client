@@ -3,37 +3,45 @@ import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import style from "./Login.module.scss";
-import { fetchLogin } from "../../../Redux/slices/auth";
+import { fetchLogin, resetData } from "../../../Redux/slices/auth";
 import { closeModal } from "../../../Redux/slices/modal";
+
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = ({ setReg }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { status, error } = useSelector((state) => state.auth);
+  const { status, badReq } = useSelector((state) => state.auth);
 
   const isLoading = status === "loaded";
+
+  const OnClicksetReg = () => {
+    setReg(false);
+    dispatch(resetData());
+  };
 
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: (values) => {
       dispatch(fetchLogin(values));
-      resetForm();
     },
   });
 
   React.useEffect(() => {
-    if (!Array.isArray(error) && error) {
-      window.alert(error);
+    if (!Array.isArray(badReq) && badReq) {
+      toast.error(badReq);
     } else if (isLoading) {
       dispatch(closeModal());
     }
-  }, [isLoading, error, dispatch, navigate]);
+  }, [isLoading, badReq, dispatch, navigate]);
 
   return (
     <form className={style.form} onSubmit={formik.handleSubmit}>
+      <ToastContainer />
       <div className={style.login}>
         <h3>Увійти в особистий кабінет</h3>
         <div className={style.content}>
@@ -46,9 +54,9 @@ const Login = ({ setReg }) => {
               value={formik.values.email}
               onBlur={formik.handleBlur}
             />
-            {Array.isArray(error) ? (
+            {Array.isArray(badReq) ? (
               <span className={style.errorActive}>
-                {error.filter((error) => error.path === "email")[0]?.msg + " *" ?? ""}
+                {badReq.filter((badReq) => badReq.path === "email")[0]?.msg ?? ""}
               </span>
             ) : (
               ""
@@ -63,9 +71,9 @@ const Login = ({ setReg }) => {
               value={formik.values.password}
               onBlur={formik.handleBlur}
             />
-            {Array.isArray(error) ? (
+            {Array.isArray(badReq) ? (
               <span className={style.errorActive}>
-                {error.filter((error) => error.path === "password")[0]?.msg + " *" ?? ""}
+                {badReq.filter((badReq) => badReq.path === "password")[0]?.msg ?? ""}
               </span>
             ) : (
               ""
@@ -74,7 +82,7 @@ const Login = ({ setReg }) => {
         </div>
 
         <button type='submit'>Увійти</button>
-        <p onClick={() => setReg(false)}>Зареєструватися</p>
+        <p onClick={OnClicksetReg}>Зареєструватися</p>
       </div>
     </form>
   );

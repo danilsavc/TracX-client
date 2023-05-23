@@ -30,7 +30,11 @@ const Navbar = () => {
       style={location.pathname === "/" ? { backgroundColor: "" } : style}
     >
       <div className={styles.container}>
-        <img src={logo} alt='logo' />
+        <div className={styles.logo}>
+          <img src={logo} alt='logo' />
+          <span>TracX</span>
+        </div>
+
         <nav className={styles.nav}>
           <NavLink to='/' className={isActive}>
             <span>Головна</span>
@@ -46,9 +50,9 @@ const Navbar = () => {
           </NavLink>
         </nav>
         {data ? (
-          <button className={styles.cabinet}>
-            <NavLink to='/cabinet'>Особистий кабінет</NavLink>
-          </button>
+          <NavLink to='/cabinet' className={styles.btn}>
+            <button className={styles.cabinet}>Особистий кабінет</button>
+          </NavLink>
         ) : (
           <button onClick={() => dispatch(openModal())}>Увійти</button>
         )}

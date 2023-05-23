@@ -66,9 +66,22 @@
         }
       }
 
-      img {
+      .logo {
         grid-area: img;
         align-self: flex-start;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        span {
+          font-style: normal;
+          font-weight: 700;
+          font-size: 130px;
+          line-height: 20px;
+          letter-spacing: 0.4px;
+          color: #ffffff;
+        }
       }
     }
   }

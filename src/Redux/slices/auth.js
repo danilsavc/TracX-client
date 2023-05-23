@@ -44,9 +44,9 @@ export const fetchAuth = createAsyncThunk("auth/fetchAuth", async () => {
 
     return decodedToken;
   } catch (error) {
-    // if (error.response.data.message) {
-    //   throw new Error(JSON.stringify(error.response.data.message));
-    // }
+    if (error.response.data.message) {
+      throw new Error(JSON.stringify(error.response.data.message));
+    }
   }
 });
 
@@ -54,6 +54,7 @@ const initialState = {
   data: null,
   status: "loading",
   error: null,
+  badReq: null,
 };
 
 const authSlice = createSlice({
@@ -63,33 +64,39 @@ const authSlice = createSlice({
     logout(state) {
       state.data = null;
     },
+    resetData(state) {
+      state.data = null;
+      state.status = "loading";
+      state.error = null;
+      state.badReq = null;
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRegister.pending, (state) => {
         state.status = "loading";
-        state.error = null;
+        state.badReq = null;
       })
       .addCase(fetchRegister.fulfilled, (state, action) => {
         state.data = action.payload;
         state.status = "loaded";
-        state.error = null;
+        state.badReq = null;
       })
       .addCase(fetchRegister.rejected, (state, action) => {
-        state.error = JSON.parse(action.error.message);
+        state.badReq = JSON.parse(action.error.message);
         state.status = "error";
       })
       .addCase(fetchLogin.pending, (state) => {
         state.status = "loading";
-        state.error = null;
+        state.badReq = null;
       })
       .addCase(fetchLogin.fulfilled, (state, action) => {
         state.data = action.payload;
         state.status = "loaded";
-        state.error = null;
+        state.badReq = null;
       })
       .addCase(fetchLogin.rejected, (state, action) => {
-        state.error = JSON.parse(action.error.message);
+        state.badReq = JSON.parse(action.error.message);
         state.status = "error";
       })
       .addCase(fetchAuth.pending, (state) => {
@@ -108,6 +115,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout } = authSlice.actions;
-export const selectIsAuth = (state) => Boolean(state.auth.data);
+export const { logout, resetData } = authSlice.actions;
+
 export const authReducer = authSlice.reducer;
