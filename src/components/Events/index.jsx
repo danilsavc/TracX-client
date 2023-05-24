@@ -40,9 +40,7 @@ const Events = () => {
         searchValue,
       })
     );
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentFormatId, currentCategoryId, currentPage, searchValue]);
+  }, [currentFormatId, currentCategoryId, currentPage, searchValue, dispatch]);
 
   const content = (isLoading ? [...Array(6)] : items.events.rows).map((item, index) =>
     isLoading ? (

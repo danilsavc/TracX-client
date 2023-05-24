@@ -2,8 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../Redux/slices/auth";
 import style from "./Information.module.scss";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ThreeDots from "../../Skeletons/ThreeDots";
+import { ADMIN_ROUTE, MODERATOR_ROUTE } from "../../../utils/consts";
 
 const Information = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,12 @@ const Information = () => {
           <span className={style.content}>{data.email}</span>
         </div>
 
+        <NavLink to={ADMIN_ROUTE}>
+          <button>Панель адміністратора</button>
+        </NavLink>
+        <NavLink to={MODERATOR_ROUTE}>
+          <button>Панель модератора</button>
+        </NavLink>
         <button onClick={onClickLogout}>Вийти з аккаунта</button>
       </div>
     );

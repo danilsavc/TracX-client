@@ -1,0 +1,67 @@
+@import "../../../style/Normal_Classes.module.scss";
+
+.box {
+  display: grid;
+  row-gap: 50px;
+
+  p {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: start;
+  }
+
+  .title {
+    display: grid;
+    row-gap: 20px;
+    input {
+      min-width: 100%;
+      @include input-style;
+    }
+  }
+
+  .subtitle {
+    display: grid;
+    row-gap: 20px;
+    textarea {
+      min-width: 100%;
+      min-height: 100px;
+      @include input-style;
+    }
+  }
+
+  .date {
+    display: grid;
+    row-gap: 20px;
+    input {
+      @include input-style;
+    }
+  }
+
+  .filters {
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(2, 250px);
+    }
+  }
+
+  .price {
+    display: grid;
+    grid-template-columns: 100px 200px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "p p" "span input";
+    row-gap: 20px;
+
+    span {
+      font-size: 20px;
+      grid-area: span;
+    }
+
+    input {
+      grid-area: input;
+    }
+
+    p {
+      grid-area: p;
+    }
+  }
+}

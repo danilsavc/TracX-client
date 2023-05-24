@@ -2,16 +2,15 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchCategory,
-  resetFilters,
   setCurentCategory,
   setCurentCategoryId,
-} from "../../../Redux/slices/filter";
+} from "../../../../Redux/slices/filter";
 
-import styles from "./Category.module.scss";
-import down from "../../../Assets/img/down.svg";
-import { setCurrentPage } from "../../../Redux/slices/events";
+import styles from "./CategoryModer.module.scss";
+import down from "../../../../Assets/img/down.svg";
+import { setCurrentPage } from "../../../../Redux/slices/events";
 
-const Category = () => {
+const CategoryModer = () => {
   const dispatch = useDispatch();
   const { category, status, currentCategory } = useSelector((state) => state.filter);
   const allItems = ["Категорія"];
@@ -24,8 +23,8 @@ const Category = () => {
 
   React.useEffect(() => {
     dispatch(fetchCategory());
-    dispatch(resetFilters());
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   React.useEffect(() => {
     const onClickWindow = (e) => {
@@ -82,4 +81,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default CategoryModer;

@@ -1,0 +1,56 @@
+@import "../../../../style/Normal_Classes.module.scss";
+
+.tag {
+  display: grid;
+  row-gap: 20px;
+  .addTag {
+    display: grid;
+    grid-template-columns: repeat(2, 400px);
+    button {
+      max-width: 300px;
+      max-height: 50px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 3px solid #001a34;
+      cursor: pointer;
+      background: none;
+      transition: background-color 0.5s ease;
+      &:hover {
+        background-color: #001a34;
+        color: white;
+      }
+    }
+
+    input {
+      @include input-style;
+    }
+  }
+
+  .tagsContainer {
+    display: grid;
+    row-gap: 10px;
+    .tag {
+      display: grid;
+      grid-template-columns: 120px 100px;
+
+      button {
+        text-align: center;
+        line-height: 0;
+        max-width: 150px;
+        max-height: 20px;
+        padding: 10px 20px;
+        font-size: 12px;
+        border-radius: 10px;
+        border: 3px solid #001a34;
+        cursor: pointer;
+        background: none;
+        transition: background-color 0.5s ease;
+        &:hover {
+          background-color: #001a34;
+          color: white;
+        }
+      }
+    }
+  }
+}

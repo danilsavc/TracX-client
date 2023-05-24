@@ -25,6 +25,12 @@ const filterSlice = createSlice({
   name: "format",
   initialState,
   reducers: {
+    resetFilters(state) {
+      state.currentCategory = "Категорія";
+      state.currentCategoryId = 0;
+      state.currentFormat = "Формат";
+      state.currentFormatId = 0;
+    },
     setCurentCategory(state, action) {
       state.currentCategory = action.payload;
     },
@@ -66,7 +72,12 @@ const filterSlice = createSlice({
   },
 });
 
-export const { setCurentCategory, setCurentCategoryId, setCurentFormat, setCurentFormatId } =
-  filterSlice.actions;
+export const {
+  setCurentCategory,
+  setCurentCategoryId,
+  setCurentFormat,
+  setCurentFormatId,
+  resetFilters,
+} = filterSlice.actions;
 
 export const filterReducer = filterSlice.reducer;

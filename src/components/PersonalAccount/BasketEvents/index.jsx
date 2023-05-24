@@ -15,8 +15,16 @@ import EmptyBasket from "./EmptyBasket";
 
 const BasketEvents = () => {
   const dispatch = useDispatch();
-  const { status, arr_id_status, arr_id, status_events, events, status_delete, message_delete } =
-    useSelector((state) => state.viewBasket);
+  const {
+    status,
+    arr_id_status,
+    arr_id,
+    status_events,
+    events,
+    status_delete,
+    message_delete,
+    data,
+  } = useSelector((state) => state.viewBasket);
   const { format } = useSelector((state) => state.filter);
 
   React.useEffect(() => {
@@ -27,7 +35,7 @@ const BasketEvents = () => {
     if (status === "loaded") {
       dispatch(events_id());
     }
-  }, [status, dispatch]);
+  }, [status, dispatch, data]);
 
   React.useEffect(() => {
     if (arr_id_status === "loaded") {

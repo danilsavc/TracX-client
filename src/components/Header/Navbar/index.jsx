@@ -49,6 +49,7 @@ const Navbar = () => {
             <span>Контакти</span>
           </NavLink>
         </nav>
+
         {data ? (
           <NavLink to='/cabinet' className={styles.btn}>
             <button className={styles.cabinet}>Особистий кабінет</button>

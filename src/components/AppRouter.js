@@ -15,7 +15,11 @@ import {
   EVENTS_ROUTE,
   ABOUTUS_ROUTE,
   PERSONALACCOUNT_ROUTE,
+  ADMIN_ROUTE,
+  MODERATOR_ROUTE,
 } from "../utils/consts";
+import Admin from "./Admin";
+import Moderator from "./Moderator";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -32,6 +36,8 @@ const AppRouter = () => {
         <Route path={EVENTS_ROUTE} element={<Events />}></Route>
         <Route path={EVENTS_ROUTE + "/:id"} element={<EventDetails />}></Route>
         <Route path={PERSONALACCOUNT_ROUTE} element={<PersonalAccount />}></Route>
+        <Route path={ADMIN_ROUTE} element={<Admin />}></Route>
+        <Route path={MODERATOR_ROUTE} element={<Moderator />}></Route>
       </Route>
     </Routes>
   );

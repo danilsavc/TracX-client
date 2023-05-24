@@ -3,7 +3,7 @@
   .container {
     display: grid;
     grid-template-columns: 30px repeat(3, 1fr) 30px;
-    grid-template-areas: ". logo ul button .";
+    grid-template-areas: ". logo ul btn_admin button .";
     align-items: center;
 
     max-width: 1400px;
@@ -69,7 +69,7 @@
       grid-area: button;
       justify-self: end;
       button {
-        min-width: 93px;
+        min-width: 170px;
         height: 48px;
         background: none;
         border-radius: 10px;
