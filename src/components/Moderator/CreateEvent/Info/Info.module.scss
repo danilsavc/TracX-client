@@ -1,0 +1,67 @@
+@import "../../../../style/Normal_Classes.module.scss";
+
+.box {
+  display: grid;
+  grid-template-rows: 30px 1fr 70px;
+  .items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+
+    .container {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+
+      input {
+        align-self: center;
+        @include input-style;
+      }
+
+      textarea {
+        min-width: 50%;
+        min-height: 100px;
+        @include input-style;
+      }
+
+      button {
+        margin-top: 15px;
+        text-align: center;
+        line-height: 0;
+        max-width: 100%;
+        max-height: 50px;
+        padding: 10px 20px;
+        font-size: 12px;
+        border-radius: 10px;
+
+        cursor: pointer;
+        background-color: #001a34;
+        color: white;
+        transition: background-color 0.5s ease;
+        &:hover {
+          background: none;
+          border: 3px solid #001a34;
+          color: #001a34;
+        }
+      }
+    }
+  }
+
+  button {
+    margin-top: 15px;
+    text-align: center;
+    line-height: 0;
+    max-width: 100%;
+    max-height: 50px;
+    padding: 10px 20px;
+    font-size: 12px;
+    border-radius: 10px;
+    border: 3px solid #001a34;
+    cursor: pointer;
+    background: none;
+    transition: background-color 0.5s ease;
+    &:hover {
+      background-color: #001a34;
+      color: white;
+    }
+  }
+}

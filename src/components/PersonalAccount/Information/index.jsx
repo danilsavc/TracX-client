@@ -21,6 +21,8 @@ const Information = () => {
   };
 
   if (isLoading) {
+    const roles = data.roleName || ["USER"];
+
     return (
       <div className={style.information}>
         <div className={style.block}>
@@ -35,13 +37,23 @@ const Information = () => {
           <span className={style.title}>Пошта</span>
           <span className={style.content}>{data.email}</span>
         </div>
+        {roles.includes("ADMIN") ? (
+          <>
+            <NavLink to={MODERATOR_ROUTE}>
+              <button>Панель модератора</button>
+            </NavLink>
+            <NavLink to={ADMIN_ROUTE}>
+              <button>Панель адміністратора</button>
+            </NavLink>
+          </>
+        ) : null}
 
-        <NavLink to={ADMIN_ROUTE}>
-          <button>Панель адміністратора</button>
-        </NavLink>
-        <NavLink to={MODERATOR_ROUTE}>
-          <button>Панель модератора</button>
-        </NavLink>
+        {roles.includes("MODERATOR") ? (
+          <NavLink to={MODERATOR_ROUTE}>
+            <button>Панель модератора</button>
+          </NavLink>
+        ) : null}
+
         <button onClick={onClickLogout}>Вийти з аккаунта</button>
       </div>
     );

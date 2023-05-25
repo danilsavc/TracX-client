@@ -6,6 +6,7 @@ import Color from "./Color";
 import FormatModer from "./FormatModer";
 import CategoryModer from "./CategoryModer";
 import Tags from "./Tags/index";
+import Info from "./Info";
 
 const colors = ["#9c6fe2", "#273da4", "#1da551", "#e38800", "#d062d1", "#e44a59"];
 
@@ -13,6 +14,7 @@ const CreateEvent = () => {
   const [price, setPrice] = React.useState(0);
   const [selectedColor, setSelectedColor] = React.useState(colors[0]);
   const [tags, setTags] = React.useState([]);
+  const [info, setInfo] = React.useState([]);
   // const { currentFormatId } = useSelector((state) => state.filter);
 
   return (
@@ -67,6 +69,10 @@ const CreateEvent = () => {
 
       <div className={style.param}>
         <Color colors={colors} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
+      </div>
+
+      <div className={style.info}>
+        <Info info={info} setInfo={setInfo} />
       </div>
     </div>
   );

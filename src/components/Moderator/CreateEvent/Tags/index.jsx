@@ -40,7 +40,7 @@ const Tags = ({ tags, setTags }) => {
       <div className={style.tagsContainer}>
         {tags.map((tag, index) => (
           <div key={index} className={style.tag}>
-            {tag}
+            <span>{tag}</span>
             <button onClick={() => handleDeleteTag(index)}>Видалити</button>
           </div>
         ))}
