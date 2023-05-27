@@ -37,10 +37,6 @@ export const fetchAuth = createAsyncThunk("auth/fetchAuth", async () => {
     const { data } = await $authHost.get("/api/user/auth");
     localStorage.setItem("token", data.token);
     const decodedToken = jwt_decode(data.token);
-    const currentTime = Date.now() / 1000;
-    if (decodedToken.exp < currentTime) {
-      throw new Error("Token expired");
-    }
 
     return decodedToken;
   } catch (error) {

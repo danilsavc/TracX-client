@@ -4,7 +4,7 @@
 
   gap: 30px;
   input {
-    max-width: 100%;
+    max-width: 70%;
     max-height: 56px;
     border-radius: 10px;
     border: 1px solid #dee5ea;
@@ -20,10 +20,11 @@
 
   p {
     max-width: 100%;
+    text-align: start;
   }
 
   button {
-    width: 100%;
+    width: 70%;
     height: 50px;
     background: #231b12;
     border-radius: 10px;
@@ -52,7 +53,6 @@
 
     .user {
       display: grid;
-      grid-template-rows: 100px repeat(2, 50px);
       row-gap: 15px;
       h3 {
         margin-top: 20px;
@@ -64,6 +64,12 @@
         font-size: 20px;
         font-weight: 400;
       }
+      .userRole {
+        display: grid;
+        .oneRole {
+          font-size: 15px;
+        }
+      }
     }
 
     .roles {
@@ -73,7 +79,9 @@
         text-align: start;
         margin-bottom: 30px;
       }
-
+      button {
+        min-width: 200px;
+      }
       .role {
         text-align: start;
         margin-bottom: 20px;

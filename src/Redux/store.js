@@ -7,6 +7,8 @@ import { modalReducer } from "./slices/modal";
 import { basketReducer } from "./slices/addBasket";
 import { viewBasketReducer } from "./slices/viewBasket";
 import { addFilterReducer } from "./slices/addFilters";
+import { searchUserReducer } from "./slices/searchUser";
+import { rolesReducer } from "./slices/roles";
 
 const store = configureStore({
   reducer: {
@@ -17,6 +19,8 @@ const store = configureStore({
     modal: modalReducer,
     basket: basketReducer,
     viewBasket: viewBasketReducer,
+    searchUser: searchUserReducer,
+    roles: rolesReducer,
   },
 });
 
