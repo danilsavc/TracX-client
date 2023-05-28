@@ -45,8 +45,9 @@ const Format = () => {
   };
 
   const onClickCategory = (formatName, index) => {
+    const formatId = status === "loaded" && format ? format[index - 1]?.id : 0;
     dispatch(setCurentFormat(formatName));
-    dispatch(setCurentFormatId(index));
+    dispatch(setCurentFormatId(formatId));
     dispatch(setCurrentPage(1));
     setClickMainBlock(false);
   };

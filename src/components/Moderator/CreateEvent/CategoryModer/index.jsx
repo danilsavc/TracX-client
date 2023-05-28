@@ -49,8 +49,9 @@ const CategoryModer = () => {
   };
 
   const onClickCategory = (categoryName, index) => {
+    const categoryId = status === "loaded" && category ? category[index - 1]?.id : 0;
     dispatch(setCurentCategory(categoryName));
-    dispatch(setCurentCategoryId(index));
+    dispatch(setCurentCategoryId(categoryId));
     dispatch(setCurrentPage(1));
     setClickMainBlock(false);
   };

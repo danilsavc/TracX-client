@@ -2,21 +2,35 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Swal from "sweetalert2";
-import style from "./CreateEvent.module.scss";
-import Color from "./Color";
-import FormatModer from "./FormatModer";
-import CategoryModer from "./CategoryModer";
-import Tags from "./Tags/index";
-import Info from "./Info";
-import { converData } from "../../../utils/convertData";
-import { fetchNewEvent } from "../../../http/fetchNewEvent";
-import { resetFilters } from "../../../Redux/slices/filter";
+import style from "./Update.module.scss";
+import Color from "../../CreateEvent/Color";
+import FormatModer from "../../CreateEvent/FormatModer";
+import CategoryModer from "../../CreateEvent/CategoryModer";
+import Tags from "../../CreateEvent/Tags";
+import Info from "../../CreateEvent/Info";
+import { converData } from "../../../../utils/convertData";
+
+import {
+  resetFilters,
+  setCurentCategory,
+  setCurentCategoryId,
+  setCurentFormat,
+  setCurentFormatId,
+} from "../../../../Redux/slices/filter";
+import { useNavigate, useParams } from "react-router-dom";
+import { fetchEvent } from "../../../../http/fetchEvent";
+import { useQuery } from "react-query";
+import { fetchUpdateEvent } from "../../../../http/fetchUpadateEvent";
 
 const colors = ["#9c6fe2", "#273da4", "#1da551", "#e38800", "#d062d1", "#e44a59"];
 
 const CreateEvent = () => {
   const dispatch = useDispatch();
-  const { currentFormatId, currentCategoryId } = useSelector((state) => state.filter);
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { currentFormatId, currentCategoryId, category, format } = useSelector(
+    (state) => state.filter
+  );
 
   const [price, setPrice] = React.useState(0);
   const [selectedColor, setSelectedColor] = React.useState(colors[0]);
@@ -25,6 +39,28 @@ const CreateEvent = () => {
   const [title, setTitle] = React.useState("");
   const [subtitle, setSubtitle] = React.useState("");
   const [data, setData] = React.useState("");
+
+  const { data: item, isLoading } = useQuery("event", () => fetchEvent(id), {
+    refetchOnWindowFocus: false,
+  });
+
+  React.useEffect(() => {
+    if (!isLoading) {
+      dispatch(setCurentCategoryId(item.data.categoryId));
+      dispatch(setCurentFormatId(item.data.formatId));
+      dispatch(
+        setCurentCategory(category.find((category) => category.id === item.data.categoryId)?.name)
+      );
+      dispatch(setCurentFormat(format.find((format) => format.id === item.data.formatId)?.name));
+      setTitle(item.data.title);
+      setSubtitle(item.data.descriptions);
+      setPrice(item.data.price);
+      setTags(item.data.tags);
+      setInfo(item.data.info);
+      setSelectedColor(item.data.bcgColor);
+    }
+    // eslint-disable-next-line
+  }, [isLoading]);
 
   const onClickAdd = () => {
     if (
@@ -39,7 +75,7 @@ const CreateEvent = () => {
       Swal.fire("Будь ласка, заповніть усі обов'язкові поля");
       return;
     } else {
-      fetchNewEvent({
+      fetchUpdateEvent(id, {
         title: title,
         descriptions: subtitle,
         data: converData(data),
@@ -52,19 +88,17 @@ const CreateEvent = () => {
       })
         .then(() => {
           dispatch(resetFilters());
-          setTitle("");
-          setSubtitle("");
-          setData("");
-          setPrice(0);
-          setTags([]);
-          setInfo([]);
         })
-        .then(() => Swal.fire("Подія успішно була додана"));
+        .then(() => Swal.fire("Подія успішно була оновлена"))
+        .then(() => {
+          navigate("/events");
+        });
     }
   };
 
   return (
     <div className={style.box}>
+      <h1>Оновлення події</h1>
       <div className={style.title}>
         <p>Введіть заголовок, він повинен містити мінімум 2 символи, а максимально 25 символів</p>
         <input
@@ -125,7 +159,7 @@ const CreateEvent = () => {
         <Info info={info} setInfo={setInfo} />
       </div>
       <button className={style.btn} onClick={onClickAdd}>
-        Додати подію
+        Оновити подію
       </button>
     </div>
   );

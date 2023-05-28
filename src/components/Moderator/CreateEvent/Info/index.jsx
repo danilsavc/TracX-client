@@ -4,7 +4,7 @@ import style from "./Info.module.scss";
 const Info = ({ info, setInfo }) => {
   const handleAddEvent = () => {
     if (info.length === 0 || (info.length > 0 && info[info.length - 1].title !== "")) {
-      setInfo([...info, { title: "", description: "" }]);
+      setInfo([...info, { title: "", descriptions: "" }]);
     }
   };
 
@@ -17,7 +17,7 @@ const Info = ({ info, setInfo }) => {
   const handleInputChange = (index, field, value) => {
     const updatedEvents = [...info];
     if (!updatedEvents[index]) {
-      updatedEvents[index] = { title: "", description: "" };
+      updatedEvents[index] = { title: "", descriptions: "" };
     }
     updatedEvents[index][field] = value;
     setInfo(updatedEvents);
@@ -41,8 +41,8 @@ const Info = ({ info, setInfo }) => {
             />
             <textarea
               placeholder='Наприклад: ця подія розрахована на людей у яких є базові знання з React'
-              value={event.description}
-              onChange={(e) => handleInputChange(index, "description", e.target.value)}
+              value={event.descriptions}
+              onChange={(e) => handleInputChange(index, "descriptions", e.target.value)}
               required
             ></textarea>
             {info.length > 0 && <button onClick={() => handleRemoveEvent(index)}>Видалити</button>}

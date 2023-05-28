@@ -1,6 +1,11 @@
-@import "../../../style/Normal_Classes.module.scss";
+@import "../../../../style/Normal_Classes.module.scss";
 
 .box {
+  h1 {
+    margin-top: 30px;
+    @include title-style;
+  }
+
   display: grid;
   row-gap: 50px;
 

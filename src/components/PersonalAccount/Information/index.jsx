@@ -48,7 +48,7 @@ const Information = () => {
           </>
         ) : null}
 
-        {roles.includes("MODERATOR") ? (
+        {roles.includes("MODERATOR") && !roles.includes("ADMIN") ? (
           <NavLink to={MODERATOR_ROUTE}>
             <button>Панель модератора</button>
           </NavLink>

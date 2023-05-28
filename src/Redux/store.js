@@ -9,6 +9,7 @@ import { viewBasketReducer } from "./slices/viewBasket";
 import { addFilterReducer } from "./slices/addFilters";
 import { searchUserReducer } from "./slices/searchUser";
 import { rolesReducer } from "./slices/roles";
+import { ModerEventsReducer } from "./slices/moderEvents";
 
 const store = configureStore({
   reducer: {
@@ -21,6 +22,7 @@ const store = configureStore({
     viewBasket: viewBasketReducer,
     searchUser: searchUserReducer,
     roles: rolesReducer,
+    moderEvents: ModerEventsReducer,
   },
 });
 

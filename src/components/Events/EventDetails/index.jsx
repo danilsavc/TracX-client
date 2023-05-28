@@ -92,7 +92,7 @@ const EventDetails = () => {
 
       <div className={styles.tags}>
         <h1 style={style}>Ключові хештеги:</h1>
-        {item.tags && item.tags.map((tag, index) => <span key={index}>#{tag}</span>)}
+        {item.tags && item.tags.map((tag, index) => <span key={index}>{tag}</span>)}
       </div>
 
       <Order price={item.price} />

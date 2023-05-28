@@ -1,0 +1,14 @@
+.box {
+  .pagination {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0 20px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}

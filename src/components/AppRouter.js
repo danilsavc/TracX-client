@@ -20,6 +20,8 @@ import {
 } from "../utils/consts";
 import Admin from "./Admin";
 import Moderator from "./Moderator";
+import { UPDATE_ROUTE } from "./../utils/consts";
+import Update from "./Moderator/UpdateEvent/Update";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -38,6 +40,7 @@ const AppRouter = () => {
         <Route path={PERSONALACCOUNT_ROUTE} element={<PersonalAccount />}></Route>
         <Route path={ADMIN_ROUTE} element={<Admin />}></Route>
         <Route path={MODERATOR_ROUTE} element={<Moderator />}></Route>
+        <Route path={MODERATOR_ROUTE + UPDATE_ROUTE + "/:id"} element={<Update />}></Route>
       </Route>
     </Routes>
   );
