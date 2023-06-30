@@ -1,5 +1,7 @@
 .navbar {
   // background-color: #273da4;
+  position: sticky;
+
   .container {
     display: grid;
     grid-template-columns: 30px repeat(3, 1fr) 30px;
