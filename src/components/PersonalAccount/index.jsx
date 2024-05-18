@@ -7,6 +7,7 @@ import BasketEvents from "./BasketEvents";
 
 import account from "../../Assets/img/account.svg";
 import calendar from "../../Assets/img/calendar.svg";
+import heart from "../../Assets/img/heart.svg";
 
 const PersonalAccount = () => {
   const [activeTab, setActiveTab] = React.useState(0);
@@ -31,7 +32,15 @@ const PersonalAccount = () => {
           className={`${style.tabButton} ${activeTab === 1 ? style.active : ""}`}
           onClick={() => handleTabChange(1)}
         />
+
+        <img
+          src={heart}
+          alt='heart'
+          className={`${style.tabButton} ${activeTab === 2 ? style.active : ""}`}
+          onClick={() => handleTabChange(2)}
+        />
       </div>
+
       <Carousel
         selectedItem={activeTab}
         showStatus={false}
@@ -51,6 +60,11 @@ const PersonalAccount = () => {
           <div className={style.slideContent}>
             <h1>Заплановані події</h1>
             <BasketEvents />
+          </div>
+        </div>
+        <div>
+          <div className={style.slideContent}>
+            <h1>Обрані категоріі</h1>
           </div>
         </div>
       </Carousel>

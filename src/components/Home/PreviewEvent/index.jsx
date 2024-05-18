@@ -25,14 +25,14 @@ const PreviewEvents = () => {
   return (
     <div className={style.events}>
       <div className={style.header}>
-        <h1>Події</h1>
+        <h1>Рекомендовані події</h1>
         <NavLink to='/events'>
           <button>Усі події</button>
         </NavLink>
       </div>
 
       <div className={style.items}>
-        {(isLoading ? [...Array(3)] : items.events.rows.slice(3)).map((item, index) =>
+        {(isLoading ? [...Array(3)] : items.events?.rows.slice(3))?.map((item, index) =>
           isLoading ? (
             <EventsSkeleton key={index} />
           ) : (
